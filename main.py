@@ -2,7 +2,6 @@ import time
 import random
 import os
 
-# Импортируем твои модули
 import nicknames
 import prefixes
 import suffixes
@@ -44,15 +43,12 @@ def start_stream(lang_data):
 
     try:
         while True:
-            # Случайное событие: донат или сообщение
             if random.randint(1, 10) == 1:
                 print(f"💰 [DONATION] {events.get_donation()}")
             else:
-                # Генерируем сообщение, подставляя ник стримера
                 msg = messages.generate_message(streamer_name)
                 print(msg)
 
-            # Задержка, чтобы чат не летел слишком быстро
             time.sleep(random.uniform(1.5, 4.0))
             
     except KeyboardInterrupt:
@@ -60,7 +56,6 @@ def start_stream(lang_data):
         time.sleep(2)
 
 def main():
-    # Словари для языков
     langs = {
         "ru": {
             "menu": "1. Запустить симулятор\n2. Изменить язык / Настройки\n3. Выход",
@@ -112,7 +107,7 @@ def main():
         }
     }
 
-    current_lang = "en" # По умолчанию английский
+    current_lang = "en"
 
     while True:
         clear_console()
