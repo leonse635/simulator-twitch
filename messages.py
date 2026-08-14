@@ -4,7 +4,6 @@ import nicknames, prefixes, suffixes
 bad_words = ["шл*к*", "18+", "порно"]
 
 def generate_message(streamername):
-    # Берем случайного бота из списков
     user = random.choice(nicknames.names)
     pref = random.choice(prefixes.prefixes)
     suff = random.choice(suffixes.suffixes)
@@ -66,7 +65,6 @@ def generate_message(streamername):
     
     msg_text = random.choice(msgs)
     
-    # Проверка на плохие слова (бан бота)
     for word in bad_words:
         if word in msg_text.lower():
             return f"SYSTEM: [{pref}] {user}_{suff} ЗАБАНЕН за мат/18+!"
